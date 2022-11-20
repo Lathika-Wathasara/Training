@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=NetP1_2 Pin=VR1-1
+Removed Pin From Net: NetName=NetC1_1 Pin=VR1-2
+Removed Pin From Net: NetName=NetR11_2 Pin=VR2-2
+Removed Pin From Net: NetName=NetC3_1 Pin=VR2-3
+Removed Member From Class: ClassName=sheet1 Member=VR1
+Removed Member From Class: ClassName=sheet1 Member=VR2
+Added Component: Designator=VR_1(VerRes)
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=VR_2(VerRes)
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetP1_2 Pin=VR_1-1
+Added Pin To Net: NetName=NetC1_1 Pin=VR_1-2
+Added Pin To Net: NetName=NetR11_2 Pin=VR_2-2
+Added Pin To Net: NetName=NetC3_1 Pin=VR_2-3
+Added Member To Class: ClassName=sheet1 Member=Component VR_1 VRes
+Added Member To Class: ClassName=sheet1 Member=Component VR_2 VRes
