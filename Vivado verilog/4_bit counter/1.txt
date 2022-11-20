@@ -1,0 +1,96 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/21/2022 02:00:23 AM
+// Design Name: 
+// Module Name: 4_bit_counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module four_bit_counter(
+    input clk,
+    input reset,
+    input en,
+    output reg[3:0] out
+    );
+    always @(posedge clk or negedge reset)
+    begin
+    if(~reset) out<= 4'b0000;
+    else if (en) out<= out + 4'b0001;
+    end
+endmodule
+
+
+
+
+
+
+
+`timescale 1ns / 10ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/21/2022 11:14:44 PM
+// Design Name: 
+// Module Name: test
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module test;
+
+    reg clk, reset,en,out;
+    
+    localparam T =5;
+    four_bit_counter cnt(.clk(clk),.reset(reset), .en(en),.out(out));
+    reg cl;
+    
+    always
+    begin
+        cl = 1'b1;
+        #20;
+        
+        cl =1'b0;
+        #20;
+    end
+    
+    always @(posedge cl)
+    begin
+        en = 1;
+        reset =0;
+        clk = 1'b1;
+        #T; 
+        clk = 1'b0;
+        #T;
+        clk = 1'b1;
+        #T; 
+        clk = 1'b0;
+        #T;
+        
+        
+    end
+    
+endmodule
